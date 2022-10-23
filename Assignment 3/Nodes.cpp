@@ -6,7 +6,7 @@ using namespace std;
  {
     head = NULL;
     sum=0; 
- }
+ }//default constructor
 
 void Ll::deleteNode(int Node1)
 {
