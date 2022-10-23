@@ -28,10 +28,10 @@ int main()
     cout << "Please enter the first and the second element:" << endl;
     cin >> firstelement >> secondelement;
     insertafter(firstelement, secondelement);
-    Ll *obj = new Ll;
-    obj->linkedlist();
-    obj->printList();
-    cout << "The sum of all nodes is : " << obj->sumnodes();
+    Ll obj;
+    obj.linkedlist();
+    obj.printList();
+   cout << "The sum of all nodes is : " << obj.sumnodes();
     
     return 0;
 }
