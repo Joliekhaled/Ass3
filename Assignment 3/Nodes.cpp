@@ -8,103 +8,91 @@ using namespace std;
     sum=0; 
  }
 
+int Ll::sumnodes()
+{
+    node* p = head;
+    sum = 0;
+    while (p != NULL)
+    {
+        sum = sum + p->value;
+        p = p->next;
+    }
+    return sum;
+}
+//delete node
 void Ll::deleteNode(int Node1)
 {
-    node *p = head, *q = NULL;
-    int S = 0;
-  
-    if (head == NULL) {
-        cout << "The linked List is empty, so no things exist to delete" << endl;
-        return;
-    }
-    while (p != NULL) {
+    node* p = head;
+    node* q = head;
+    while (p != NULL)
+    {
+        if (p->value == Node1)
+        {
+            q->next = p->next;
+            delete p;
+            break;
+        }
+        q = p;
         p = p->next;
-        S++;
     }
-    if (S < Node1) {
-        cout << "Index out of range"<< endl;
-        return;
-    }
-    p = head;
-  
-    if (Node1 == 1) {
-        head = head->next;
-        delete p;
-        return;
-    }
-    while (Node1-- > 1) {
-    
-       q = p;
-       p = p->next;
-    }
- 
-   q->next = p->next;
-    delete p;
 }
- 
+// take value from user and insert it in the linked list
 void Ll::insertNode(int value)
 {
-    
-    node* N = new node[value];
-  
-    
-    if (head == NULL) {
-        head = N;
-        return;
+    node* p = new node;
+    p->value = value;
+    p->next = NULL;
+    p->count = 1;
+    if (head == NULL)
+    {
+        head = p;
     }
-  
-    
-    node* n = head;
-    while (n->next != NULL) {
-        n = n->next;
+    else
+    {
+        node* q = head;
+        while (q->next != NULL)
+        {
+            q = q->next;
+        }
+        q->next = p;
     }
- 
-    n->next = N;
 }
-  
 void Ll::printList()
 {
     node* p = head;
-  
-    
-    if (head == NULL) {
+
+    if (p == NULL) {
         cout << "List empty" << endl;
         return;
     }
-  
-    
-    while (p != NULL) {
-        cout << p->value << " "<< p->count;
-        
+    while (p != NULL)
+    {
+        cout << "Value: " << p->value << " " << "Count: " << p->count;
+        cout << endl;
         p = p->next;
     }
+
 }
-void Ll:: linkedlist ()
+void Ll::linkedlist()
 {
-for (int i=0; i<v.size(); i++)
-{   node *p= head;
-    bool prime = 1;
-    while (p->next!=NULL)
-    {
-        if (p->value == v[i])
-        {
-            p->count++;
-            prime=0;
-        }
-        p=p->next;
-    }
-    if (prime==1)
-    {
-        insertNode(v[i]);
-    }
+bool prime = 0;
+for (int i = 0; i < v.size(); i++)
+{
+node* p = head;
+while (p != NULL)
+{
+if (p->value == v[i])
+{
+p->count++;
+prime = 1;
+break;
 }
+p = p->next;
 }
- int Ll::sumnodes()
-{   node*p=head;
-    sum=0;
-    while (p!=NULL)
-    {
-       sum=sum+p->value;
-    }
-    return sum;
+if (prime == 0)
+{
+insertNode(v[i]);
+}
+prime = 0;
+}
 }
