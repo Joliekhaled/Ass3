@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+void insertafter(int first, int second);
  vector <int >v;
  struct node
  { 
