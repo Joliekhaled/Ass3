@@ -7,7 +7,7 @@ void insertafter(int first, int second);
  { 
      int value;
      node*next;
-     int count;
+     int count = 1;
  };
  class Ll
  { 
